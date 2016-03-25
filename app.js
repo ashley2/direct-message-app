@@ -11,7 +11,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 
-const mongoUrl = 'mongodb://localhost/introtoauth';
+const mongoUrl = 'mongodb://localhost/directmessage';
 
 mongoose.connect(mongoUrl, function(err) {
   if(err) {
@@ -37,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/users', require('./routes/profiles'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

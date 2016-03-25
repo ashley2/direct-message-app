@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 ///protected zone from here below now
-router.use(User.authMiddleWare);
+// router.use(User.authMiddleWare);
 
 // GET /protected
 router.get('/protected', User.authMiddleWare, function(req, res) {

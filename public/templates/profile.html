@@ -1,0 +1,43 @@
+<h1>Welcome!</h1>
+
+<div ng-hide="viewEdit">
+
+<label for="">Photo</label>
+<img ng-src={{user.photo}}>
+
+<label for="">Name</label>
+<div ng-model="user.name"></div>
+
+<label for="">Email:</label>
+<div ng-model="user.email"></div>
+
+<button ng-click="viewEditForm()">Update Profile</button>
+</div>
+
+
+
+<div class="card" ng-show="viewEdit">
+
+<form ng-submit="saveEdit(saveEdit)">
+
+  <label for="">Photo</label>
+  <input ng-model="editProfile.photo">
+
+  <label for="">Name</label>
+  <input ng-model="editProfile.name">
+
+  <label for="">Email:</label>
+  <input ng-model="editProfile.email">
+
+  <label for="">Username:</label>
+  <input ng-model="editProfile.username">
+
+  <label for="">Password:</label>
+  <input ng-model="editProfile.password">
+
+
+  <button>Submit</button>
+
+</form>
+
+</div>

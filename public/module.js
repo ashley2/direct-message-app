@@ -1,6 +1,4 @@
-'use strict';
-
-var app = angular.module('userAuth', ['ui.router'])
+var app = angular.module('minionApp', ['ui.router'])
 .config(function($stateProvider, $urlRouterProvider){
 
 
