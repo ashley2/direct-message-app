@@ -4,12 +4,14 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var jwt = require('jwt-simple');
 
-const JWT_SECRET = 'this is my SUPER secret';
+const JWT_SECRET = 'I took the path less traveled by, and that has made all the differece';
 var User;
 
 var userSchema = new mongoose.Schema({
   username: {type: String, unique: true, required: true},
-  password: {type: String, required: true}
+  password: {type: String, required: true},
+  avatar: {type: String},
+  email: {type:String}
 });
 
 userSchema.statics.register = function(userObj, cb) {
@@ -20,6 +22,7 @@ userSchema.statics.register = function(userObj, cb) {
       User.create({
         username: userObj.username,
         password: hash
+
       }, function(err) {
         cb(err);
     })
@@ -48,7 +51,7 @@ userSchema.statics.authenticate = function(userObj, cb) {
 }
 
 userSchema.statics.authMiddleWare = function(req, res, next) {
-    var token = req.cookies.tiffcookie;
+    var token = req.cookies.ashleycookie;
     console.log("token", token);
     if(!token) {
       return res.status(401).send('No token. Get one!');
@@ -57,13 +60,13 @@ userSchema.statics.authMiddleWare = function(req, res, next) {
       var payload = jwt.decode(token, JWT_SECRET);
     } catch (err) {
       console.log('err:', err);
-      return res.clearCookie('tiffcookie').status(401).send();
-      // res.clearCookie('tiffcookie');
+      return res.clearCookie('ashleycookie').status(401).send();
+      // res.clearCookie('ashleycookie');
     }
     //we have a valid token
     User.findById(payload.userId, function(err, user) {
       if(err || !user) {
-        return res.clearCookie('tiffcookie').status(401).send(err);
+        return res.clearCookie('ashleycookie').status(401).send(err);
       }
     //the user exists
     req.user = user; //making the user document available to the route

@@ -14,7 +14,7 @@ router.post('/authenticate', function(req, res) {
     if(err) {
       res.status(400).send(err);
     } else {
-      res.cookie('tiffcookie', token).send();
+      res.cookie('ashleycookie', token).send();
     }
   });
 });
