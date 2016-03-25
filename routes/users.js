@@ -25,4 +25,17 @@ router.post('/register', function(req, res) {
   });
 });
 
+
+
+router.put('/', (req, res) => {
+ Profile.findByIdAndUpdate(req.body._id, req.body, (err, profile) => {
+    if(err) {
+      return res.status(499).send(err)
+    }
+    res.end();
+  })
+})
+
+
+
 module.exports = router;
