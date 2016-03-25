@@ -18,7 +18,7 @@ $http.get('/users/me')
 
 $scope.viewEdit = null;
 
-  $scope.viewEditForm = function(){
+  $scope.viewEditForm = function(user){
     $scope.viewEdit = true;
   }
 

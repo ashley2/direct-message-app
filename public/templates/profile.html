@@ -6,12 +6,15 @@
 <img ng-src={{user.photo}}>
 
 <label for="">Name</label>
-<div ng-model="user.name"></div>
+<div ng-model="user.name">{{user.name}}</div>
 
 <label for="">Email:</label>
-<div ng-model="user.email"></div>
+<div ng-model="user.email">{{user.email}}</div>
 
-<button ng-click="viewEditForm()">Update Profile</button>
+<label for="">Username:</label>
+<div ng-model="user.username">{{user.username}}</div>
+
+<button ng-click="viewEditForm(user)">Update Profile</button>
 </div>
 
 
@@ -20,19 +23,19 @@
 <form ng-submit="saveEdit(saveEdit)">
 
   <label for="">Photo</label>
-  <input ng-model="editProfile.photo">
+  <input ng-model="user.photo">
 
   <label for="">Name</label>
-  <input ng-model="editProfile.name">
+  <input ng-model="user.name">
 
   <label for="">Email:</label>
-  <input ng-model="editProfile.email">
+  <input ng-model="user.email">
 
   <label for="">Username:</label>
-  <input ng-model="editProfile.username">
+  <input ng-model="user.username">
 
   <label for="">Password:</label>
-  <input ng-model="editProfile.password">
+  <input ng-model="user.password">
 
 
   <button>Submit</button>

@@ -9,11 +9,13 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/me', (User.authMiddleware, function(req,res) {
+router.get('/me', User.authMiddleWare, function(req, res) {
 
-  console.log(req.user)
+  console.log('req.user',req.user)
   res.send(req.user)
-}))
+})
+
+
 
 
 router.post('/authenticate', function(req, res) {
