@@ -12,9 +12,5 @@ app.service('UserService', function($http) {
     return $http.post('/users/authenticate', user);
   }
 
-
-  this.create = function(newMinion){
-    return $http.post('/minions', newMinion);
-  }
-
+ this.getMe = () => $http.get('/users/me')
 });

@@ -5,6 +5,17 @@ var app = angular.module('userAuth');
 
 app.controller('profileCtrl', function($scope, $http, UserService) {
 
+
+
+$http.get('/users/me')
+      .then(function(res) {
+        console.log('NEWres:', res);
+      }, function(err) {
+        console.error(err);
+      })
+
+
+
 $scope.viewEdit = null;
 
   $scope.viewEditForm = function(){
