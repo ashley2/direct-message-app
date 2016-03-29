@@ -10,13 +10,18 @@ router.get('/', function(req, res) {
 });
 
 router.get('/me', User.authMiddleWare, function(req, res) {
-
-  console.log('req.user',req.user)
   res.send(req.user)
 })
 
-
-
+//get all users from db
+router.get('/all', (req, res)=> {
+  User.find({}, (err, data) => {
+    if(err) {
+      return res.status(499).send(err)
+    }
+    res.send(data);
+  })
+})
 
 router.post('/authenticate', function(req, res) {
   User.authenticate(req.body, function(err, token) {
@@ -34,15 +39,24 @@ router.post('/register', function(req, res) {
   });
 });
 
-
+router.put('/', (req, res) => {
+ User.findByIdAndUpdate(req.body._id, req.body, (err, profile) => {
+  console.log('req', req.body)
+  if(err) {
+    console.log('err', err)
+    return res.status(499).send(err)
+  }
+  res.send(profile);
+})
+})
 
 router.put('/', (req, res) => {
- Profile.findByIdAndUpdate(req.body._id, req.body, (err, profile) => {
-    if(err) {
-      return res.status(499).send(err)
-    }
-    res.end();
-  })
+ User.findByIdAndUpdate(req.body._id, req.body, (err, profile) => {
+  if(err) {
+    return res.status(499).send(err)
+  }
+  res.end();
+})
 })
 
 

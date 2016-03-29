@@ -1,45 +1,69 @@
-<h1>Welcome!</h1>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">DMme <i class="fa fa-envelope"></i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a ng-click="viewEditForm(user)">Update Profile</a></li>
+      <li><a ui-sref="messaging">Messaging</a></li>
+      <li><a ui-sref="login">Logout</a></li>
+    </ul>
+  </div>
+</nav>
 
-<div ng-hide="viewEdit">
+<div id="profileBody">
+  <h1>Welcome {{user.name}}!</h1>
+<div class="row">
+  <div class="col-l6">
+    <div ng-hide="viewEdit">
 
-<label for="">Photo</label>
-<img ng-src={{user.photo}}>
+      <img ng-src={{user.photo}}>
+      <br>
+      <label class="label" for="">Username:</label> <div class="profInfo" ng-model="user.username">{{user.username}}</div>
+      <br>
+      <label class="label" for="">Name:</label> <div class="profInfo" ng-model="user.name">{{user.name}}</div>
+      <br>
+      <label class="label" or="">Email:</label> <div class="profInfo" ng-model="user.email">{{user.email}}</div>
+      <!-- <br> -->
+    </div>
 
-<label for="">Name</label>
-<div ng-model="user.name">{{user.name}}</div>
+    <div class="col-l6">
+      <div>Friends:</div>
+      <ul ng-repeat="user in userArr track by $index">
+        <li>username</li>
+      </ul>
 
-<label for="">Email:</label>
-<div ng-model="user.email">{{user.email}}</div>
+    </div>
 
-<label for="">Username:</label>
-<div ng-model="user.username">{{user.username}}</div>
-
-<button ng-click="viewEditForm(user)">Update Profile</button>
+  </div>
 </div>
 
 
-<div class="card" ng-show="viewEdit">
 
-<form ng-submit="saveEdit(saveEdit)">
 
-  <label for="">Photo</label>
-  <input ng-model="user.photo">
 
-  <label for="">Name</label>
-  <input ng-model="user.name">
 
-  <label for="">Email:</label>
-  <input ng-model="user.email">
+  <div class="card" ng-show="viewEdit">
 
-  <label for="">Username:</label>
-  <input ng-model="user.username">
+    <form ng-submit="saveEdit()">
 
-  <label for="">Password:</label>
-  <input ng-model="user.password">
+      <label for="">Photo</label>
+      <input ng-model="user.photo">
+
+      <label for="">Name</label>
+      <input ng-model="user.name">
+
+      <label for="">Email:</label>
+      <input ng-model="user.email">
+
+ <!--  <label for="">Username:</label>
+ <input ng-model="user.username"> -->
+
+  <!-- <label for="">Password:</label>
+  <input ng-model="user.password"> -->
 
 
   <button>Submit</button>
 
 </form>
 
+</div>
 </div>

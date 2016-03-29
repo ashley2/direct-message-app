@@ -1,34 +1,47 @@
-<div>DMme</div>
+<div class="top">
+<div class="title">DMme <i class="fa fa-envelope"></i></div>
+</div>
 
-  <div ng-controller='testCtrl'>
-    <button ng-click="test()">Test!</button>
-  </div>
+<br><br>
 
-  <br><hr>
+
+<div id="loginBody">
   <form name="registrationForm" ng-controller='registerCtrl' novalidate ng-submit='register(regUser)'>
-    <h3>Register</h3>
-    <div class="">
-      <label>Username: </label>
-      <input type="text" ng-model='regUser.username'>
+    <div class="subTitle">Register!</div>
+    <div class="row">
+    <div class="input-field col s6">
+      <input ng-model='regUser.username' value="Alvin" id="first_name2" type="text" class="validate register">
+      <label class="active register" for="first_name2">Username:</label>
     </div>
-    <div class="">
-      <label>Password: </label>
-      <input type="password" ng-model='regUser.password'>
+  <!-- </div> -->
+  <!-- <div class="row"> -->
+    <div class="input-field col s6">
+      <input ng-model='regUser.password' value="Alvin" id="first_name2" type="password" class="validate register">
+      <label class="active" for="first_name2">Password:</label>
     </div>
-    <button>Register!</button>
+  </div>
+        
+    <button class="btn waves-effect waves-light">Register!</button>
   </form>
   <br><hr>
   <form name="loginForm" ng-controller='loginCtrl' novalidate ng-submit='login(loginUser)'>
-    <h3>Login</h3>
-    <div class="">
-      <label>Username: </label>
-      <input type="text" ng-model='loginUser.username'>
+      <div class="subTitle">Login!</div>
+
+   <div class="row">
+    <div class="input-field col s3">
+      <input ng-model='loginUser.username' value="Alvin" id="first_name2" type="text" class="validate register">
+      <label class="active" for="first_name2">Username:</label>
     </div>
-    <div class="">
-      <label>Password: </label>
-      <input type="password" ng-model='loginUser.password'>
+  <!-- </div> -->
+  <!-- <div class="row"> -->
+    <div class="input-field col s3">
+      <input ng-model='loginUser.password' value="Alvin" id="first_name2" type="password" class="validate register">
+      <label class="active" for="first_name2">Password:</label>
     </div>
-    <br>
-    <button>Login!</button>
-    <br><br><br><br>
+  </div>
+
+    <button class="btn waves-effect waves-light">Login!</button>
+
   </form>
+
+  </div>

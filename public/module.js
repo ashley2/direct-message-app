@@ -1,4 +1,4 @@
-var app = angular.module('minionApp', ['ui.router'])
+var app = angular.module('userAuth', ['ui.router'])
 .config(function($stateProvider, $urlRouterProvider){
 
 
@@ -15,6 +15,10 @@ var app = angular.module('minionApp', ['ui.router'])
     templateUrl: "templates/profile.html",
     controller: "profileCtrl"
   })
+  .state('messaging',
+   {url: '/messaging',
+    templateUrl: 'templates/messaging.html',
+     controller: 'messagingCtrl'})
   
 
 
